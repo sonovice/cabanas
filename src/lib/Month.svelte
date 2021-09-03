@@ -41,7 +41,7 @@
         {months[month - 1]}
     </div>
     <div class="overflow-hidden bg-white rounded-b-lg">
-        <table class="w-full table-fixed">
+        <table class="w-full border-collapse table-fixed">
             <tr>
                 {#each weekdays as weekday}
                     <th class="w-1/[7] text-center py-2">{weekday}</th>
@@ -52,7 +52,7 @@
                     {#each week as day}
                         {#if day > 0}
                             <td
-                                class="h-12 pt-1 pr-2 text-xs text-right text-white align-top"
+                                class="h-12 pt-1 pr-2 text-xs text-right text-white align-top border border-gray-200"
                                 class:text-white={data[day] != undefined &&
                                     data[day].length > max / 2}
                                 title={data[day] != undefined
@@ -66,7 +66,7 @@
                                 >{day}
                             </td>
                         {:else}
-                            <td class="bg-gray-200"/>
+                            <td class="bg-gray-200 border border-gray-200"/>
                         {/if}
                     {/each}
                 </tr>
