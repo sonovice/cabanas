@@ -3,29 +3,29 @@
   // import Counter from "./lib/Counter.svelte";
   import Month from "./lib/Month.svelte";
 
-  const data: object = {
-    2021: {
-      9: {
-        3: ["MAC1", "MAC2"],
-        21: ["MAC17"],
+  const data = {
+    "2021": {
+      "9": {
+        "3": ["MAC1", "MAC2"],
+        "21": ["MAC17"],
       },
-      3: {
-        1: [""],
-        2: ["", ""],
-        3: ["", "", ""],
-        4: ["", "", "", ""],
-        5: ["", "", "", "", ""],
-        6: ["", "", "", "", "", ""],
-        7: ["", "", "", "", "", "", ""],
-        8: ["", "", "", "", "", "", "", ""],
-        9: ["", "", "", "", "", "", "", "", ""],
-        10: ["", "", "", "", "", "", "", "", "", ""],
-        29: ["", "", "", "", ""],
+      "3": {
+        "1": [""],
+        "2": ["", ""],
+        "3": ["", "", ""],
+        "4": ["", "", "", ""],
+        "5": ["", "", "", "", ""],
+        "6": ["", "", "", "", "", ""],
+        "7": ["", "", "", "", "", "", ""],
+        "8": ["", "", "", "", "", "", "", ""],
+        "9": ["", "", "", "", "", "", "", "", ""],
+        "10": ["", "", "", "", "", "", "", "", "", ""],
+        "29": ["", "", "", "", ""],
       },
     },
-    2020: {
-      1: {
-        3: ["Foo"],
+    "2020": {
+      "1": {
+        "3": ["Foo"],
       },
     },
   };
@@ -58,7 +58,7 @@
     <div class="text-xl mt-6">{year}</div>
     <div class="mt-2 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {#each Object.keys(data[year]).sort().reverse() as month}
-        <Month {year} {month} max={numColors} data={data[year][month]} />
+        <Month year={parseInt(year)} month={parseInt(month)} max={numColors} data={data[year][month]} />
       {/each}
     </div>
   {/each}
