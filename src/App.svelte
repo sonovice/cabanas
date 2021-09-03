@@ -1,6 +1,6 @@
 <script lang="ts">
   import Month from "./lib/Month.svelte";
-  let data;
+  let data: Object = {};
 
   fetch("https://raw.githubusercontent.com/sonovice/cabanas/main/data.json")
     .then((response) => {
