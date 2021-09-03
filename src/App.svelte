@@ -1,6 +1,11 @@
 <script lang="ts">
   import Month from "./lib/Month.svelte";
+  let data: Object;
 
+  fetch("https://raw.githubusercontent.com/sonovice/cabanas/main/data.json")
+    .then((response) => {
+      data = response.json();
+    });
 
   let numColors = 0;
   for (let year in data) {
@@ -30,7 +35,12 @@
     <div class="mt-6 text-xl">{year}</div>
     <div class="grid grid-cols-1 gap-4 mt-2 md:grid-cols-2 lg:grid-cols-3">
       {#each Object.keys(data[year]).sort().reverse() as month}
-        <Month year={parseInt(year)} month={parseInt(month)} max={numColors} data={data[year][month]} />
+        <Month
+          year={parseInt(year)}
+          month={parseInt(month)}
+          max={numColors}
+          data={data[year][month]}
+        />
       {/each}
     </div>
   {/each}
