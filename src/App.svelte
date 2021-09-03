@@ -3,10 +3,11 @@
   let data: Object = {};
   let numColors = 0;
 
-  fetch(
-    "https://raw.githubusercontent.com/sonovice/cabanas/main/data.json"
-  ).then((response) => {
-    data = response.json();
+  fetch("https://raw.githubusercontent.com/sonovice/cabanas/main/data.json")
+  .then((response) => response.json())
+  .then((response) => {
+    data = response;
+    console.log(data);
 
     for (let year in data) {
       for (let month in data[year]) {
