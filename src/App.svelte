@@ -4,22 +4,20 @@
   let numColors = 0;
 
   fetch("https://raw.githubusercontent.com/sonovice/cabanas/main/data.json")
-  .then((response) => response.json())
-  .then((response) => {
-    data = response;
+    .then((response) => response.json())
+    .then((response) => {
+      data = response;
 
-    for (let year in data) {
-      for (let month in data[year]) {
-        for (let day in data[year][month]) {
-          const numEntries = data[year][month][day].length;
-          numColors = Math.max(numColors, numEntries);
+      for (let year in data) {
+        for (let month in data[year]) {
+          for (let day in data[year][month]) {
+            const numEntries = data[year][month][day].length;
+            numColors = Math.max(numColors, numEntries);
+          }
         }
       }
-    }
-  });
+    });
 </script>
-
-<!-- <img src={logo} alt="Svelte Logo" /> -->
 
 <nav class="bg-cyan-800">
   <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">

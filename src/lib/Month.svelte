@@ -36,7 +36,7 @@
 
 <div>
     <div
-        class="flex items-center p-2 pl-2 font-medium text-white rounded-t-lg bg-cyan-700"
+        class="flex items-center p-2 font-medium text-white rounded-t-lg text-md bg-cyan-700"
     >
         {months[month - 1]}
     </div>
