@@ -1,21 +1,22 @@
 <script lang="ts">
   import Month from "./lib/Month.svelte";
   let data: Object = {};
-
-  fetch("https://raw.githubusercontent.com/sonovice/cabanas/main/data.json")
-    .then((response) => {
-      data = response.json();
-    });
-
   let numColors = 0;
-  for (let year in data) {
-    for (let month in data[year]) {
-      for (let day in data[year][month]) {
-        const numEntries = data[year][month][day].length;
-        numColors = Math.max(numColors, numEntries);
+
+  fetch(
+    "https://raw.githubusercontent.com/sonovice/cabanas/main/data.json"
+  ).then((response) => {
+    data = response.json();
+
+    for (let year in data) {
+      for (let month in data[year]) {
+        for (let day in data[year][month]) {
+          const numEntries = data[year][month][day].length;
+          numColors = Math.max(numColors, numEntries);
+        }
       }
     }
-  }
+  });
 </script>
 
 <!-- <img src={logo} alt="Svelte Logo" /> -->
