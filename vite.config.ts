@@ -7,5 +7,8 @@ export default defineConfig({
   plugins: [
     WindiCSS.default(),
     svelte()
-  ]
+  ],
+  build: {
+    outDir: 'docs'
+  }
 })
