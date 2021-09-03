@@ -7,7 +7,6 @@
   .then((response) => response.json())
   .then((response) => {
     data = response;
-    console.log(data);
 
     for (let year in data) {
       for (let month in data[year]) {
