@@ -36,11 +36,11 @@
 
 <div>
     <div
-        class="bg-cyan-700 p-2 rounded-t-lg text-white font-medium flex items-center pl-2"
+        class="flex items-center p-2 pl-2 font-medium text-white rounded-t-lg bg-cyan-700"
     >
         {months[month - 1]}
     </div>
-    <div class="bg-white rounded-b-lg overflow-hidden">
+    <div class="overflow-hidden bg-white rounded-b-lg">
         <table class="w-full table-fixed">
             <tr>
                 {#each weekdays as weekday}
@@ -52,7 +52,7 @@
                     {#each week as day}
                         {#if day > 0}
                             <td
-                                class="text-right text-white h-12 text-xs align-top pr-2 pt-1"
+                                class="h-12 pt-1 pr-2 text-xs text-right text-white align-top"
                                 class:text-white={data[day] != undefined &&
                                     data[day].length > max / 2}
                                 title={data[day] != undefined

@@ -1,6 +1,4 @@
 <script lang="ts">
-  // import logo from "./assets/svelte.png";
-  // import Counter from "./lib/Counter.svelte";
   import Month from "./lib/Month.svelte";
 
   const data = {
@@ -44,19 +42,19 @@
 <!-- <img src={logo} alt="Svelte Logo" /> -->
 
 <nav class="bg-cyan-800">
-  <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+  <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
     <div class="flex items-center h-12">
-      <div class="text-white text-2xl font-medium py-2">
+      <div class="py-2 text-2xl font-medium text-white">
         Cabanas WiFi Monitor
       </div>
     </div>
   </div>
 </nav>
 
-<main class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 mb-4">
+<main class="px-2 mx-auto mb-4 max-w-7xl sm:px-6 lg:px-8">
   {#each Object.keys(data).sort().reverse() as year}
-    <div class="text-xl mt-6">{year}</div>
-    <div class="mt-2 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div class="mt-6 text-xl">{year}</div>
+    <div class="grid grid-cols-1 gap-4 mt-2 md:grid-cols-2 lg:grid-cols-3">
       {#each Object.keys(data[year]).sort().reverse() as month}
         <Month year={parseInt(year)} month={parseInt(month)} max={numColors} data={data[year][month]} />
       {/each}
