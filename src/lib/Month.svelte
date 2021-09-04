@@ -42,7 +42,7 @@
     </div>
     <div class="overflow-hidden bg-white rounded-b-lg">
         <table class="w-full border-collapse table-fixed">
-            <tr>
+            <tr class="border-l border-r border-gray-200">
                 {#each weekdays as weekday}
                     <th class="w-1/[7] text-center py-2">{weekday}</th>
                 {/each}
