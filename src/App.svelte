@@ -32,7 +32,7 @@
 <main class="px-2 mx-auto mb-4 max-w-7xl sm:px-6 lg:px-8">
   {#each Object.keys(data).sort().reverse() as year}
     <div class="mt-8 text-2xl">{year}</div>
-    <div class="grid grid-cols-1 gap-4 mt-2 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-6 mt-2 md:grid-cols-2 lg:grid-cols-3">
       {#each Object.keys(data[year]).sort((a, b) => parseInt(b) - parseInt(a)) as month}
         <Month
           year={parseInt(year)}
