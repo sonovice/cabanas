@@ -36,3 +36,8 @@ for mac in macs:
 
 with open("data.json", "w") as fp:
     json.dump(data, fp)
+
+
+# TODO GitHub commit and push
+# Use SSH keys for this, see https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+# generate key: ssh-keygen -t ed25519 -C "mail@example.com"

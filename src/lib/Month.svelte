@@ -36,9 +36,9 @@
 
 <div>
     <div
-        class="flex items-center p-2 font-medium text-white rounded-t-lg text-md bg-cyan-700"
+        class="uppercase tracking-wide flex items-center p-2 font-medium text-white rounded-t-lg text-md bg-cyan-700"
     >
-        {months[month - 1]}
+        {months[month - 1]} {year}
     </div>
     <div class="overflow-hidden bg-white rounded-b-lg">
         <table class="w-full border-collapse table-fixed">
