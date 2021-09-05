@@ -39,7 +39,6 @@
         bgColors[day] = colors[numMacs];
         textColors[day] = numMacs < (max / 1.5) ? "text-black" : "text-white";
     }
-    console.log(textColors)
 </script>
 
 <div>

@@ -2,6 +2,7 @@
   import Month from "./lib/Month.svelte";
   let data: Object = {};
   let numColors = 0;
+  let lastUpdated = "";
 
   fetch("https://raw.githubusercontent.com/sonovice/cabanas/main/data.json")
     .then((response) => response.json())
@@ -17,13 +18,23 @@
         }
       }
     });
+
+  fetch("https://api.github.com/repos/sonovice/cabanas/commits?per_page=1")
+    .then((response) => response.json())
+    .then((response) => {
+      const date = response[0].commit.author.date;
+      lastUpdated = date.substring(0, 10) + " @ " + date.substring(11, 16);
+    });
 </script>
 
-<nav class="bg-teal-800">
+<nav class="text-white bg-teal-800">
   <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
-    <div class="flex items-center h-12">
-      <div class="py-2 text-2xl font-medium text-white uppercase">
+    <div class="items-center justify-between min-h-12 md:flex">
+      <div class="py-2 text-2xl font-medium uppercase">
         Cabanas WiFi Monitor
+      </div>
+      <div class="py-2 text-sm">
+        Last updated: {lastUpdated}
       </div>
     </div>
   </div>
