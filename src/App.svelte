@@ -33,7 +33,7 @@
       <div class="text-2xl font-medium uppercase">
         Cabanas WiFi Monitor
       </div>
-      <div class="py-2 text-sm">
+      <div class="py-2 text-sm italic">
         Last updated: {lastUpdated}
       </div>
     </div>
