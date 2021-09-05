@@ -8,8 +8,8 @@
     import colormap from "colormap";
 
     let colors = colormap({
-        colormap: "hot",
-        nshades: max + 2,
+        colormap: "magma",
+        nshades: Math.max(9, Math.ceil(max*1.5)),
         format: "hex",
         alpha: 1,
     }).reverse();
@@ -32,19 +32,33 @@
     ];
 
     const view = calendarize(`${year}-${month}`, 1);
+    let bgColors = Array(32).fill("#ffffff");
+    let textColors = Array(32).fill("text-black");
+    for (let day in data) {
+        const numMacs = Math.min(max, data[day].length);
+        bgColors[day] = colors[numMacs];
+        textColors[day] = numMacs < (max / 1.5) ? "text-black" : "text-white";
+    }
+    console.log(textColors)
 </script>
 
 <div>
     <div
-        class="uppercase tracking-wide flex items-center p-2 font-medium text-white rounded-t-lg text-md bg-cyan-700"
+        class="flex items-center justify-center p-2 tracking-wide text-white uppercase bg-teal-800 rounded-t-lg"
     >
-        {months[month - 1]} {year}
+        {months[month - 1]}
+        {year}
     </div>
     <div class="overflow-hidden bg-white rounded-b-lg">
-        <table class="w-full border-collapse table-fixed">
-            <tr class="border-l border-r border-gray-200">
+        <table
+            class="w-full bg-white table-fixed"
+        >
+            <tr class="bg-true-gray-800">
                 {#each weekdays as weekday}
-                    <th class="w-1/[7] text-center py-2">{weekday}</th>
+                    <td
+                        class="w-1/[7] text-center text-xs font-medium py-2 text-white"
+                        >{weekday}</td
+                    >
                 {/each}
             </tr>
             {#each view as week}
@@ -52,21 +66,17 @@
                     {#each week as day}
                         {#if day > 0}
                             <td
-                                class="h-12 pt-1 pr-2 text-xs text-right text-white align-top border border-gray-200"
-                                class:text-white={data[day] != undefined &&
-                                    data[day].length > max / 2}
+                                class="h-12 text-xs text-xl font-black text-center {textColors[day]} text-opacity-20"
                                 title={data[day] != undefined
                                     ? `${data[day].length} MAC(s):\n${data[
                                           day
                                       ].join("\n")}`
-                                    : ""}
-                                style="background-color: {data[day] != undefined
-                                    ? colors[Math.min(max, data[day].length)]
-                                    : 0}"
+                                    : "No Devices connected."}
+                                style="background-color: {bgColors[day]}"
                                 >{day}
                             </td>
                         {:else}
-                            <td class="bg-gray-200 border border-gray-200"/>
+                            <td class="bg-true-gray-300"/>
                         {/if}
                     {/each}
                 </tr>

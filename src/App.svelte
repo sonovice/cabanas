@@ -19,10 +19,10 @@
     });
 </script>
 
-<nav class="bg-cyan-800">
+<nav class="bg-teal-800">
   <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
     <div class="flex items-center h-12">
-      <div class="py-2 text-2xl font-medium text-white">
+      <div class="py-2 text-2xl font-medium text-white uppercase">
         Cabanas WiFi Monitor
       </div>
     </div>
