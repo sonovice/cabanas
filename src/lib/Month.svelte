@@ -7,9 +7,11 @@
     import calendarize from "calendarize";
     import colormap from "colormap";
 
+    const nShades = Math.max(9, Math.ceil(max * 1.5));
+
     let colors = colormap({
         colormap: "magma",
-        nshades: Math.max(9, Math.ceil(max*1.5)),
+        nshades: nShades,
         format: "hex",
         alpha: 1,
     }).reverse();
@@ -37,7 +39,7 @@
     for (let day in data) {
         const numMacs = Math.min(max, data[day].length);
         bgColors[day] = colors[numMacs];
-        textColors[day] = numMacs < (max / 1.5) ? "text-black" : "text-white";
+        textColors[day] = numMacs < nShades / 2 ? "text-black" : "text-white";
     }
 </script>
 
@@ -49,9 +51,7 @@
         {year}
     </div>
     <div class="overflow-hidden bg-white rounded-b-lg">
-        <table
-            class="w-full bg-white table-fixed"
-        >
+        <table class="w-full bg-white table-fixed">
             <tr class="bg-true-gray-800">
                 {#each weekdays as weekday}
                     <td
@@ -66,16 +66,16 @@
                         {#if day > 0}
                             <td
                                 class="h-12 text-xs text-xl font-black text-center {textColors[day]} text-opacity-20"
-                                title={data[day] != undefined
-                                    ? `${data[day].length} MAC(s):\n${data[
-                                          day
-                                      ].join("\n")}`
-                                    : "No Devices connected."}
+                                title={
+                                    data[day] != undefined
+                                    ? `${data[day].length} MAC(s):\n${data[day].join("\n")}`
+                                    : "No Devices connected."
+                                }
                                 style="background-color: {bgColors[day]}"
                                 >{day}
                             </td>
                         {:else}
-                            <td class="bg-true-gray-300"/>
+                            <td class="bg-true-gray-300" />
                         {/if}
                     {/each}
                 </tr>
