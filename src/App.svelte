@@ -29,8 +29,8 @@
 
 <nav class="text-white bg-teal-800">
   <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
-    <div class="items-center justify-between min-h-12 md:flex">
-      <div class="py-2 text-2xl font-medium uppercase">
+    <div class="items-center justify-between min-h-8 md:flex">
+      <div class="text-2xl font-medium uppercase">
         Cabanas WiFi Monitor
       </div>
       <div class="py-2 text-sm">
