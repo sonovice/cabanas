@@ -55,7 +55,7 @@
             <tr class="bg-true-gray-800">
                 {#each weekdays as weekday}
                     <td
-                        class="w-1/[7] text-center text-xs font-medium py-2 text-white"
+                        class="w-1/[7] text-center text-sm font-medium py-2 text-white"
                         >{weekday}</td
                     >
                 {/each}
