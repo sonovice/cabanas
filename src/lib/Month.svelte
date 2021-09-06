@@ -65,7 +65,7 @@
                     {#each week as day}
                         {#if day > 0}
                             <td
-                                class="h-12 text-xs text-xl font-black text-center {textColors[day]} text-opacity-20"
+                                class="h-12 text-2xl font-black text-center {textColors[day]} text-opacity-30"
                                 title={
                                     data[day] != undefined
                                     ? `${data[day].length} MAC(s):\n${data[day].join("\n")}`
