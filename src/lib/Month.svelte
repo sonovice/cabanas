@@ -39,7 +39,7 @@
     for (let day in data) {
         const numMacs = Math.min(max, data[day].length);
         bgColors[day] = colors[numMacs];
-        textColors[day] = numMacs < nShades / 2 ? "text-black" : "text-white";
+        textColors[day] = numMacs < nShades / 2.5 ? "text-black" : "text-white";
     }
 </script>
 
