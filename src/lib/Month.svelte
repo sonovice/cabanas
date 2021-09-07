@@ -43,15 +43,15 @@
     }
 </script>
 
-<div class="overflow-hidden rounded-lg shadow-lg">
+<div class="overflow-hidden rounded-lg shadow-lg bg-true-gray-300">
     <div
         class="flex items-center justify-center p-2 tracking-wide text-white uppercase bg-teal-800"
     >
         {months[month - 1]}
         {year}
     </div>
-    <div class="overflow-hidden bg-white">
-        <div class="w-full bg-white">
+    <div>
+        <div>
             <div class="grid grid-cols-7 bg-true-gray-800">
                 {#each weekdays as weekday}
                     <div class="w-1/[7] text-center text-sm font-medium py-2 text-white">
