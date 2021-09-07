@@ -43,7 +43,7 @@
     }
 </script>
 
-<div class="overflow-hidden rounded-lg shadow-lg bg-true-gray-300">
+<div class="overflow-hidden rounded-lg shadow-lg stripes">
     <div
         class="flex items-center justify-center p-2 tracking-wide text-white uppercase bg-teal-800"
     >
@@ -54,7 +54,9 @@
         <div>
             <div class="grid grid-cols-7 bg-true-gray-800">
                 {#each weekdays as weekday}
-                    <div class="w-1/[7] text-center text-sm font-medium py-2 text-white">
+                    <div
+                        class="w-1/[7] text-center text-sm font-medium py-2 text-white"
+                    >
                         {weekday}
                     </div>
                 {/each}
@@ -64,17 +66,20 @@
                     {#each week as day}
                         {#if day > 0}
                             <div
-                                class="inline-block items-center justify-center flex h-12 text-2xl font-black text-center {textColors[day]} text-opacity-30"
-                                title={
-                                    data[day] != undefined
-                                    ? `${data[day].length} MAC(s):\n${data[day].join("\n")}`
-                                    : "No Devices connected."
-                                }
+                                class="inline-block items-center justify-center flex h-12 text-2xl font-black text-center {textColors[
+                                    day
+                                ]} text-opacity-30"
+                                title={data[day] != undefined
+                                    ? `${data[day].length} MAC(s):\n${data[
+                                          day
+                                      ].join("\n")}`
+                                    : "No Devices connected."}
                                 style="background-color: {bgColors[day]}"
-                                >{day}
+                            >
+                                {day}
                             </div>
                         {:else}
-                            <div class="bg-true-gray-300" />
+                            <div />
                         {/if}
                     {/each}
                 </div>
@@ -82,3 +87,10 @@
         </div>
     </div>
 </div>
+
+<style>
+    .stripes {
+        background-color: #888;
+        background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23808080' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    }
+</style>
