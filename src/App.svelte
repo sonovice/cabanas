@@ -27,7 +27,7 @@
     });
 </script>
 
-<nav class="text-white bg-teal-800">
+<nav class="text-white bg-teal-800 shadow-lg">
   <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
     <div class="items-center justify-between min-h-8 md:flex">
       <div class="text-2xl font-medium uppercase">
