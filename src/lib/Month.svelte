@@ -51,21 +51,20 @@
         {year}
     </div>
     <div class="overflow-hidden bg-white rounded-b-lg">
-        <table class="w-full bg-white table-fixed">
-            <tr class="bg-true-gray-800">
+        <div class="w-full bg-white">
+            <div class="grid grid-cols-7 bg-true-gray-800">
                 {#each weekdays as weekday}
-                    <td
-                        class="w-1/[7] text-center text-sm font-medium py-2 text-white"
-                        >{weekday}</td
-                    >
+                    <div class="w-1/[7] text-center text-sm font-medium py-2 text-white">
+                        {weekday}
+                    </div>
                 {/each}
-            </tr>
+            </div>
             {#each view as week}
-                <tr>
+                <div class="grid grid-cols-7">
                     {#each week as day}
                         {#if day > 0}
-                            <td
-                                class="h-12 text-2xl font-black text-center {textColors[day]} text-opacity-30"
+                            <div
+                                class="inline-block items-center justify-center flex h-12 text-2xl font-black text-center {textColors[day]} text-opacity-30"
                                 title={
                                     data[day] != undefined
                                     ? `${data[day].length} MAC(s):\n${data[day].join("\n")}`
@@ -73,13 +72,13 @@
                                 }
                                 style="background-color: {bgColors[day]}"
                                 >{day}
-                            </td>
+                            </div>
                         {:else}
-                            <td class="bg-true-gray-300" />
+                            <div class="bg-true-gray-300" />
                         {/if}
                     {/each}
-                </tr>
+                </div>
             {/each}
-        </table>
+        </div>
     </div>
 </div>
