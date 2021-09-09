@@ -12,8 +12,7 @@
       for (let year in data) {
         for (let month in data[year]) {
           for (let day in data[year][month]) {
-            const numEntries = data[year][month][day].length;
-            numColors = Math.max(numColors, numEntries);
+            numColors = Math.max(numColors, data[year][month][day]);
           }
         }
       }

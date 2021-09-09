@@ -36,36 +36,33 @@
   const view = calendarize(`${year}-${month}`, 1);
   let bgColors = Array(32).fill("#ffffff");
   let textColors = Array(32).fill("text-black");
-  let dayText = Array(32).fill("No devices connected.");
   for (let day in data) {
-    const numMacs = Math.min(max, data[day].length);
-    bgColors[day] = colors[numMacs];
-    textColors[day] = numMacs < nShades / 2.5 ? "text-black" : "text-white";
-    dayText[day] = `${data[day].length} MAC(s):\n${data[day].join("\n")}`;
+    const numDevices = Math.min(max, data[day]);
+    bgColors[day] = colors[numDevices];
+    textColors[day] = numDevices < nShades / 2.5 ? "text-black" : "text-white";
   }
 </script>
 
-<div class="overflow-hidden rounded-lg shadow-lg bg-img-stripes">
+<div class="overflow-hidden rounded-lg shadow-lg h-min">
   <div class="flex items-center justify-center p-2 tracking-wide text-white uppercase bg-teal-800">
     {months[month - 1]} {year}
   </div>
 
   <div>
-    <div>
+    <div class="grid grid-cols-7 bg-true-gray-800">
+      {#each weekdays as weekday}
+        <div class="w-1/[7] text-center text-sm font-medium py-2 text-white">
+          {weekday}
+        </div>
+      {/each}
+    </div>
 
-      <div class="grid grid-cols-7 bg-true-gray-800">
-        {#each weekdays as weekday}
-          <div class="w-1/[7] text-center text-sm font-medium py-2 text-white">
-            {weekday}
-          </div>
-        {/each}
-      </div>
-
+    <div class="bg-img-stripes">
       {#each view as week}
         <div class="grid grid-cols-7">
           {#each week as day}
             {#if day > 0}
-              <div class="inline-block items-center justify-center flex h-12 text-2xl font-black text-center {textColors[day]} text-opacity-30" title={dayText[day]} style="background-color: {bgColors[day]}">
+              <div class="inline-block items-center justify-center flex h-12 text-2xl font-black text-center {textColors[day]} text-opacity-30" style="background-color: {bgColors[day]}">
                 {day}
               </div>
             {:else}
@@ -74,8 +71,8 @@
           {/each}
         </div>
       {/each}
-
     </div>
+    
   </div>
 </div>
 
